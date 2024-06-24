@@ -1,16 +1,136 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Restroom Locations</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies Data Visualization</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <style>
+       body {
+    font-family: Arial, sans-serif;
+    margin: 0; 
+    padding: 0; 
+}
 
+
+    text-align: center;
+    font-weight: bold;
+    font-size: 2em;
+    color: #4CAF50; 
+    margin: 20px 0;
+}
+
+.chart-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px auto;
+    width: 80%; 
+    border: 2px solid #ccc; 
+    padding: 20px; 
+    box-sizing: border-box; 
+    background-color: #f9f9f9; 
+    border-radius: 10px; 
+}
+
+.chart-container h2 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5em;
+    color: #FF5733; 
+    margin-bottom: 10px;
+}
+
+canvas {
+    display: flex;
+    margin: 20x auto;
+   
+}
+
+p {
+    text-align: center;
+    font-weight: bold;
+    color: navy;
+}
+    </style>
 </head>
 <body>
-    <h1>Restroom Locations in NYC</h1>
-    <div id="map1"></div>
-    <div id="map2"></div>
-    <div id="map3"></div>
+    
+    <h1>Movies Data Visualization</h1>
+
+    <!-- Container for Histogram -->
+    <div class="chart-container">
+        <h2>Count of Movies per Year</h2>
+        <div id="histogram"></div>
+        <div class="card m-auto" style="width: 90%;" data-aos="slide-up">
+            <div class="card-body">
+                <div id="chart1"></div>
+                <p>This histogram is of the movies produced over the years based on the data from IMDB. It's increased over
+                    the years with technology and according to the data, most movies were produced in 2021-2023. This may be because production was slowed around 2019-2020
+                    when Covid-19 was introduced to the world. Based on the data, we could interpret that the spike in 2022 was because of delays in production
+                    for 2020, which catapulted the numbers for 2022. 2023 and 2024 seem to be going back on track, which is a steady increase of movies throughout the years.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Container for Scatter Plot -->
+    <div class="chart-container">
+        <h2>Average Runtime of Movies Per Year</h2>
+        <div id="line-chart"></div>
+        <div class="card m-auto" style="width: 90%;" data-aos="slide-up">
+            <div class="card-body">
+                <div id="chart2"></div>
+                <p>This line chart shows the average runtime of movies per year. Based on the chart, we can see that movies between
+                    1950 and 1960 had the longest average runtime, reaching a peak of 210 minutes a movie on average. That's 3 hours and 30 minutes per movie on average.
+                    This dramatically dropped as the years go by, resulting in movies maintaining an average runtime of about 110-130 minutes.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Container for Bar Graph -->
+    <div class="chart-container">
+        <h2>BoxOffice Earnings Per Language</h2>
+        <canvas id="myBarChart" width="400" height="200"></canvas>
+        <div class="card m-auto" style="width: 90%;" data-aos="slide-up">
+            <div class="card-body">
+                <div id="chart3"></div>
+                <p>LOREM IPSUM</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="chart-container">
+        <h2>Top 10 Movies: Box Office vs. Awards</h2>
+        <canvas id="boxOfficeAwardsChart"></canvas>
+        <div class="card m-auto" style="width: 90%;" data-aos="slide-up">
+            <div class="card-body">
+                <div id="chart4"></div>
+                <p>This scatter plot shows the top 10 movies based on Box Office sales and awards won by the movies. Overall, it seems
+                    the high box office sales get numerous amounts of awards with the lowest being 73 awards to Jurassic World. However, according
+                    to the data it isn't an absolute correlation as there are movies that do less in box office sales, but accrue a greater amount of awards.
+                    From the data, movies with high box office sales get many awards, but it isn't a direct correlation.
+                </p>
+            </div>
+        </div>
+    </div>
+   
+    <div class="chart-container">
+        <h2>Top 10 Highest Box Office Movies by Rating</h2>
+        <div id="barcharttop10"></div>
+        <div class="card m-auto" style="width: 90%;" data-aos="slide-up">
+            <div class="card-body">
+                <div id="chart5"></div>
+                <p>LOREM IPSUM</p>
+            </div>
+        </div>
+    </div>
+       
     <script src="script.js"></script>
+    
 </body>
 </html>
